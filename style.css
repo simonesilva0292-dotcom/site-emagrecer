@@ -1,4 +1,4 @@
-/* --- GERAL E VARIÁVEIS --- */
+/* --- Estilos Globais e Variáveis --- */
 :root {
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Montserrat', sans-serif;
@@ -12,8 +12,6 @@
 
 html {
     scroll-behavior: smooth;
-    width: 100%;
-    overflow-x: hidden;
 }
 
 body {
@@ -24,15 +22,12 @@ body {
     overflow-x: hidden;
 }
 
-body::-webkit-scrollbar {
-    width: 6px;
-}
-body::-webkit-scrollbar-track {
-    background: #141414;
-}
-body::-webkit-scrollbar-thumb {
-    background-color: #FEE5AC;
-    border-radius: 5px;
+body::-webkit-scrollbar { width: 6px; }
+body::-webkit-scrollbar-track { background: #141414; }
+body::-webkit-scrollbar-thumb { background-color: #FEE5AC; border-radius: 5px; }
+
+p {
+    margin-bottom: 0;
 }
 
 .container {
@@ -41,14 +36,14 @@ body::-webkit-scrollbar-thumb {
     padding: 0 20px;
 }
 
-/* --- SEÇÃO HERO --- */
+/* --- Seção Hero --- */
 .hero-section {
     background: #131212 url('https://metodosecarem20dias.com/wp-content/uploads/2025/05/Copia-de-Copia-de-Copia-de-Copia-de-Design-sem-nome-3-1-1-scaled.jpg') no-repeat top center/cover;
     min-height: 640px;
     padding: 76px 0 56px 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .hero-container {
@@ -56,13 +51,14 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
     align-items: center;
     gap: 30px;
+    width: 100%;
 }
 
 .hero-content-left {
     width: 55%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
 }
 
@@ -79,9 +75,10 @@ body::-webkit-scrollbar-thumb {
     font-family: var(--font-secondary);
     font-weight: 300;
     font-size: 13px;
+    line-height: 1.4;
     color: #FFFFFF;
     max-width: 98%;
-    margin: -3px auto 8px auto;
+    margin: 0 auto;
 }
 
 .video-container {
@@ -105,7 +102,7 @@ body::-webkit-scrollbar-thumb {
 .main-cta-button {
     display: block;
     width: 100%;
-    background-color: #2D972F;
+    background: linear-gradient(133deg, #9428D3, #2D972F);
     color: #FFFFFF;
     text-decoration: none;
     padding: 22px 0;
@@ -115,10 +112,11 @@ body::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     letter-spacing: 1.2px;
     border-radius: 20px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .main-cta-button:hover {
     transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(45, 151, 47, 0.4);
 }
 
 .cta-subtext {
@@ -133,11 +131,10 @@ body::-webkit-scrollbar-thumb {
     margin-top: 10px;
 }
 
-/* --- SEÇÃO DEPOIMENTOS --- */
+/* --- Seção de Depoimentos --- */
 .testimonials-section {
     background-color: #FFFFFF;
-    padding: 30px;
-    color: #302A2C;
+    padding: 50px 30px;
 }
 
 .section-title {
@@ -154,26 +151,26 @@ body::-webkit-scrollbar-thumb {
     font-size: 17px;
     font-weight: 500;
     color: #3B2F35;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .testimonial-images {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 .testimonial-images img {
-    max-width: 18%;
+    max-width: 30%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* --- SEÇÃO BENEFÍCIOS --- */
+/* --- Seção de Benefícios --- */
 .benefits-section {
     background-color: #CF133D;
-    padding: 20px 30px;
+    padding: 60px 30px;
     color: #FFFFFF;
 }
 
@@ -185,23 +182,20 @@ body::-webkit-scrollbar-thumb {
     font-family: var(--font-secondary);
     font-weight: 800;
     text-align: center;
-    margin-top: 45px;
-    margin-bottom: 30px;
-    font-size: 2rem;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
 }
 
 .benefit-item {
     display: flex;
     align-items: center;
-    gap: 19px;
-    margin: 20px 0;
+    gap: 25px;
+    margin: 40px 0;
 }
-
 .benefit-item img {
     width: 148px;
     flex-shrink: 0;
 }
-
 .benefit-text h3 {
     font-family: var(--font-secondary);
     font-size: 28px;
@@ -209,28 +203,24 @@ body::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     margin-bottom: 10px;
 }
-
 .benefit-text p {
     font-family: var(--font-primary);
     font-size: 16px;
     font-weight: 300;
+    line-height: 1.6;
 }
 
-/* --- SEÇÃO COMO FUNCIONA --- */
+/* --- Seção Como Funciona --- */
 .how-it-works-section {
     background: linear-gradient(331deg, #3D0857 86%, #581C75 100%);
     padding: 60px 0;
 }
-
 .how-it-works-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
-
-.how-it-works-text {
-    width: 50%;
-}
+.how-it-works-text { width: 50%; }
 .how-it-works-text h4 {
     font-family: var(--font-secondary);
     font-size: 16px;
@@ -238,26 +228,25 @@ body::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     letter-spacing: 2.5px;
     color: #E2BFBF;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .how-it-works-text h3 {
     font-family: var(--font-secondary);
     font-size: 34px;
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 20px;
 }
-.how-it-works-text p {
+.how-it-works-text > p {
     font-family: var(--font-secondary);
     font-size: 18px;
     font-weight: 400;
-    margin-top: 18px;
     margin-bottom: 15px;
 }
 .check-list {
     list-style: none;
     padding-left: 0;
-    margin-bottom: 25px;
+    margin: 20px 0 30px 0;
 }
 .check-list li {
     font-family: var(--font-secondary);
@@ -267,57 +256,46 @@ body::-webkit-scrollbar-thumb {
 }
 .check-list i {
     color: #D0FF05;
-    margin-right: 8px;
+    margin-right: 10px;
     font-size: 20px;
 }
-
 .secondary-cta-button {
     display: inline-block;
-    background-color: #35BE38;
+    background: linear-gradient(133deg, #9428D3, #35BE38);
     color: #FFFFFF;
     text-decoration: none;
     padding: 21px;
     text-align: center;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 8px;
     font-family: var(--font-secondary);
     font-weight: 600;
     text-transform: uppercase;
     font-size: 18px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .secondary-cta-button:hover {
     transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(53, 190, 56, 0.4);
 }
-
 .secure-badge-small {
     width: 42%;
     display: block;
-    margin-top: 10px;
+    margin: 15px 0 0 0;
 }
+.how-it-works-image { width: 50%; text-align: center; }
+.how-it-works-image img { max-width: 79%; height: auto; }
 
-.how-it-works-image {
-    width: 50%;
-    text-align: center;
-}
-.how-it-works-image img {
-    max-width: 79%;
-    height: auto;
-}
-
-/* --- SEÇÃO OFERTA --- */
+/* --- Seção de Oferta --- */
 .offer-section {
-    background-color: #18551E;
-    padding: 3% 0 6% 0;
-    position: relative;
+    background: #18551E;
+    padding: 4% 0 6% 0;
 }
-
 .offer-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .offer-box {
     background-color: #1B151B;
     border-radius: 35px;
@@ -325,18 +303,15 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     max-width: 940px;
     width: 100%;
-    box-shadow: 0 0 10px #FFFFFF;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
-
 .offer-warning {
     font-family: var(--font-secondary);
     font-size: 20px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     margin-bottom: 15px;
 }
-
 .offer-title {
     font-family: var(--font-secondary);
     font-size: 22px;
@@ -350,7 +325,6 @@ body::-webkit-scrollbar-thumb {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .countdown-label {
     font-family: var(--font-secondary);
     font-size: 13px;
@@ -358,7 +332,6 @@ body::-webkit-scrollbar-thumb {
     color: #F4FCFF;
     margin-bottom: 5px;
 }
-
 .countdown {
     display: flex;
     justify-content: center;
@@ -368,140 +341,64 @@ body::-webkit-scrollbar-thumb {
 }
 .countdown div {
     background-color: #D25B4C;
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 15px;
     min-width: 80px;
 }
-.countdown span {
-    display: block;
-    font-family: var(--font-secondary);
-    font-size: 59px;
-    font-weight: 700;
-}
-.countdown small {
-    display: block;
-    font-family: var(--font-secondary);
-    font-size: 14px;
-}
+.countdown span { display: block; font-family: var(--font-secondary); font-size: 59px; font-weight: 700; }
+.countdown small { display: block; font-family: var(--font-secondary); font-size: 14px; }
 
-.price-old {
-    font-family: var(--font-secondary);
-    font-size: 30px;
-    font-weight: 600;
-    letter-spacing: -1.2px;
-}
-.price-old span {
-    text-decoration: line-through;
-    color: #E12222;
-}
+.price-old { font-family: var(--font-secondary); font-size: 30px; font-weight: 600; }
+.price-old span { text-decoration: line-through; color: #E12222; }
 
-.price-new {
-    font-family: var(--font-secondary);
-    font-size: 39px;
-    font-weight: 600;
-    margin-top: -15px;
-}
-.price-new span {
-    font-weight: 800;
-    color: #DAE46C;
-    text-decoration: underline;
-}
+.price-new { font-family: var(--font-secondary); font-size: 39px; font-weight: 600; margin-top: -20px; }
+.price-new span { font-weight: 800; color: #DAE46C; text-decoration: underline; }
 
 .price-cash {
     font-family: var(--font-secondary);
-    font-size: 24px;
+    font-size: 57px;
     font-weight: 800;
     letter-spacing: -0.9px;
     color: #FFD1CB;
     margin-bottom: 15px;
 }
-
 .offer-cta-button {
     display: inline-block;
-    background-color: #1AA32B;
+    background: linear-gradient(133deg, #0AA73A, #1AA32B);
     color: #FFFFFF;
     text-decoration: none;
     font-family: var(--font-secondary);
     font-weight: 600;
     font-size: 22px;
-    letter-spacing: 0.9px;
     text-transform: uppercase;
     padding: 22px 40px;
     border-radius: 19px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.offer-cta-button:hover {
-    transform: scale(1.03);
-}
+.offer-cta-button:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(26, 163, 43, 0.5); }
+.payment-info { font-family: var(--font-secondary); font-size: 14px; font-style: italic; font-weight: 400; margin-top: 10px; }
+.payment-methods { width: 28%; margin-top: 15px; }
 
-.payment-info {
-    font-family: var(--font-secondary);
-    font-size: 14px;
-    font-style: italic;
-    font-weight: 400;
-    margin-top: 10px;
-}
-
-.payment-methods {
-    width: 28%;
-    margin-top: 15px;
-}
-
-/* --- SEÇÃO GARANTIA --- */
+/* --- Seção de Garantia --- */
 .guarantee-section {
     background: linear-gradient(to right, #1F2F53, #5F2E7C);
-    padding: 30px;
+    padding: 50px 30px;
 }
-.guarantee-container {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-.guarantee-text {
-    width: 50%;
-}
-.guarantee-text h4 {
-    font-family: var(--font-secondary);
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 38px;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-.guarantee-text p {
-    font-family: var(--font-secondary);
-    font-weight: 400;
-    font-size: 18px;
-    color: #EBE5E5;
-    margin-bottom: 15px;
-}
-.guarantee-image {
-    width: 50%;
-    text-align: center;
-}
-.guarantee-image img {
-    max-width: 91%;
-}
+.guarantee-container { display: flex; align-items: center; gap: 30px; }
+.guarantee-text { width: 50%; }
+.guarantee-text h4 { font-family: var(--font-secondary); font-weight: 800; text-transform: uppercase; font-size: 38px; margin-bottom: 20px; line-height: 1.2; }
+.guarantee-text p { font-family: var(--font-secondary); font-weight: 400; font-size: 18px; color: #EBE5E5; margin-bottom: 15px; line-height: 1.6; }
+.guarantee-image { width: 50%; text-align: center; }
+.guarantee-image img { max-width: 91%; }
 
-/* --- SEÇÃO FAQ --- */
+/* --- Seção de FAQ --- */
 .faq-section {
     background-color: #FFFFFF;
     padding: 4% 0;
     color: #444433;
 }
-.faq-section .section-title {
-    font-family: var(--font-primary);
-    font-size: 33px;
-    font-weight: 700;
-    margin-bottom: 28px;
-}
-.faq-accordion {
-    max-width: 800px;
-    margin: 0 auto;
-}
-.faq-item {
-    border-bottom: 1px solid #C8C6C9;
-}
+.faq-accordion { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid #C8C6C9; margin-bottom: 8px; }
 .faq-question {
     width: 100%;
     background-color: #E0DEE2;
@@ -516,135 +413,62 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 8px;
+    transition: color 0.3s ease;
 }
-.faq-question.active {
-    color: #2DC052;
-}
-.faq-question i {
-    transition: transform 0.3s ease;
-}
-.faq-question.active i {
-    transform: rotate(180deg);
-}
-
+.faq-question.active { color: #2DC052; }
+.faq-question i { transition: transform 0.3s ease; }
+.faq-question.active i { transform: rotate(180deg); }
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    background-color: #f9f9f9;
+    transition: max-height 0.4s ease-out;
+    background-color: #fafafa;
 }
-.faq-answer p {
-    padding: 15px;
-    font-family: var(--font-primary);
-    font-size: 16px;
-    font-weight: 300;
-    color: #5E5858;
-}
+.faq-answer p { padding: 20px 15px; font-family: var(--font-primary); font-size: 16px; font-weight: 300; color: #5E5858; line-height: 1.6; }
 
-/* --- FOOTER --- */
+/* --- Rodapé --- */
 .footer-section {
     background-color: #CFCFCF;
     color: #0F0F0F;
     padding: 55px 50px 40px 50px;
     text-align: center;
 }
-.footer-container p {
-    font-family: var(--font-secondary);
-    font-size: 12px;
-    font-weight: 400;
-    margin-bottom: 15px;
-}
-.copyright {
-    font-family: var(--font-secondary);
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: capitalize;
-}
+.footer-container p { font-family: var(--font-secondary); font-size: 12px; font-weight: 400; margin-bottom: 15px; line-height: 1.5; }
+.copyright { font-family: var(--font-secondary); font-size: 14px; font-weight: 500; text-transform: capitalize; }
 
-/* --- MEDIA QUERIES (Responsividade) --- */
+/* --- Responsividade (Mobile First) --- */
 @media (max-width: 992px) {
-    .hero-container, .how-it-works-container, .guarantee-container {
-        flex-direction: column;
-    }
-    .hero-content-left, .hero-content-right, .how-it-works-text, .how-it-works-image, .guarantee-text, .guarantee-image {
-        width: 100%;
-        max-width: 500px;
-    }
-    .hero-content-right {
-        margin-top: 30px;
-    }
-    .hero-section {
-        min-height: auto;
-        padding-bottom: 80px;
-        background-position: -800px top;
-    }
-    .cta-box {
-        margin-top: 0;
-    }
-    .testimonial-images img {
-        max-width: 30%;
-    }
-    .benefit-item {
-        flex-direction: column;
-        text-align: center;
-    }
-    .how-it-works-image {
-        margin-top: 40px;
-    }
-    .guarantee-container {
-        gap: 0;
-    }
-    .guarantee-text {
-        text-align: center;
-    }
+    .hero-container, .how-it-works-container, .guarantee-container { flex-direction: column; text-align: center; }
+    .hero-content-left, .hero-content-right, .how-it-works-text, .how-it-works-image, .guarantee-text, .guarantee-image { width: 100%; max-width: 550px; }
+    .hero-section { min-height: auto; padding: 50px 0 80px 0; background-position: -800px top; }
+    .hero-content-right { margin-top: 40px; }
+    .cta-box { margin-top: 0; }
+    .how-it-works-text { text-align: left; }
+    .how-it-works-image { margin-top: 40px; }
+    .guarantee-container { gap: 20px; }
+    .guarantee-text { text-align: center; }
+    .guarantee-image img { max-width: 70%; margin-top: 20px; }
 }
 
 @media (max-width: 768px) {
-    .container {
-        max-width: 355px;
-    }
-    .main-headline {
-        font-size: 29px;
-    }
-    .sub-headline {
-        font-size: 14px;
-    }
-    .main-cta-button {
-        font-size: 14px;
-    }
-    .testimonial-images img {
-        max-width: 45%;
-    }
-    .benefits-title, .guarantee-text h4 {
-        font-size: 1.8rem;
-    }
-    .benefit-text h3 {
-        font-size: 24px;
-    }
-    .how-it-works-text h3 {
-        font-size: 28px;
-    }
-    .offer-warning {
-        font-size: 12px;
-    }
-    .offer-title {
-        font-size: 26px;
-    }
-    .price-old {
-        font-size: 22px;
-    }
-    .price-new {
-        font-size: 26px;
-    }
-    .countdown span {
-        font-size: 51px;
-    }
-    .offer-cta-button {
-        font-size: 17px;
-    }
-    .guarantee-image img {
-        max-width: 70%;
-        margin-top: 20px;
-    }
+    .container { padding: 0 15px; }
+    .main-headline { font-size: 29px; }
+    .sub-headline { font-size: 14px; }
+    .main-cta-button { font-size: 16px; }
+    .testimonial-images { flex-direction: column; align-items: center; }
+    .testimonial-images img { max-width: 80%; }
+    .benefits-title, .guarantee-text h4 { font-size: 1.8rem; }
+    .benefit-item { text-align: center; }
+    .how-it-works-text h3 { font-size: 28px; }
+    .how-it-works-text, .check-list li { text-align: center; }
+    .check-list i { display: none; } /* Opcional: remover ícone no mobile para limpar */
+    .secure-badge-small { margin: 15px auto 0 auto; }
+    .offer-warning { font-size: 14px; }
+    .offer-title { font-size: 24px; }
+    .price-old { font-size: 22px; }
+    .price-new { font-size: 28px; }
+    .price-cash { font-size: 48px; }
+    .countdown span { font-size: 51px; }
+    .offer-cta-button { font-size: 18px; padding: 20px 30px; }
+    .payment-methods { width: 61%; }
 }
