@@ -1,17 +1,20 @@
+// Espera o conteúdo da página ser totalmente carregado para executar os scripts
 document.addEventListener('DOMContentLoaded', () => {
 
     /**
-     * Injeta o player de vídeo da Converte.ai no elemento placeholder.
-     * Isso melhora o carregamento inicial da página.
+     * Função para injetar o player de vídeo da Converte.ai.
+     * Isso evita que o script do player atrase o carregamento inicial da página.
      */
     function injectVideoPlayer() {
         const videoPlaceholder = document.getElementById('video-placeholder');
+        // Verifica se o elemento para o vídeo existe na página
         if (videoPlaceholder) {
             const script = document.createElement('script');
             script.src = 'https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js';
             script.async = true;
             document.head.appendChild(script);
 
+            // Substitui o placeholder pelo iframe do vídeo
             videoPlaceholder.innerHTML = `
                 <div id="ifr_682b77713a21af615f615cf3_wrapper" style="margin: 0 auto; width: 100%; border-radius: 8px; overflow: hidden;">
                     <div style="padding: 56.25% 0 0 0; position: relative;" id="ifr_682b77713a21af615f615cf3_aspect">
@@ -29,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /**
-     * Inicia um cronômetro "evergreen" de 19 minutos.
-     * Ele usa o localStorage para persistir o tempo para o mesmo usuário.
+     * Função para iniciar o cronômetro "evergreen" de 19 minutos.
+     * Ele usa o localStorage para que o tempo continue de onde parou para o mesmo visitante.
      */
     function startCountdown() {
         const countdownElement = document.getElementById('countdown-timer');
@@ -41,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let targetTime = localStorage.getItem('countdownTargetTime');
 
-        // Se não houver tempo salvo ou se o tempo já expirou, define um novo.
+        // Se o tempo não existir ou já tiver passado, define um novo tempo futuro
         if (!targetTime || new Date().getTime() > targetTime) {
             targetTime = new Date().getTime() + DURATION_IN_SECONDS * 1000;
             localStorage.setItem('countdownTargetTime', targetTime);
@@ -51,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const now = new Date().getTime();
             const distance = targetTime - now;
 
+            // Se o tempo acabar, zera o cronômetro
             if (distance < 0) {
                 clearInterval(interval);
                 countdownElement.innerHTML = `<div><span>00</span><small>Minutos</small></div><div><span>00</span><small>Segundos</small></div>`; 
@@ -60,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
-            // Adiciona um zero à esquerda se for menor que 10
-            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-            const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+            // Adiciona um zero à esquerda se o número for menor que 10
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(seconds).padStart(2, '0');
 
             countdownElement.innerHTML = `
                 <div><span>${formattedMinutes}</span><small>Minutos</small></div>
@@ -76,33 +80,27 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     /**
-     * Adiciona a funcionalidade de acordeão para a seção de FAQ.
-     * Clicar em uma pergunta abre a resposta e fecha as outras.
+     * Função para a lógica do acordeão (FAQ).
+     * Clicar em uma pergunta abre sua resposta e fecha as outras.
      */
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(button => {
         button.addEventListener('click', () => {
             const answer = button.nextElementSibling;
-            const wasActive = button.classList.contains('active');
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-            // Fecha todos os outros itens
-            faqQuestions.forEach(b => {
-                if (b !== button) {
-                    b.classList.remove('active');
-                    b.setAttribute('aria-expanded', 'false');
-                    b.nextElementSibling.style.maxHeight = null;
-                }
+            // Fecha todos os itens antes de abrir o novo
+            faqQuestions.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.nextElementSibling.style.maxHeight = null;
             });
             
-            // Abre ou fecha o item clicado
-            if (!wasActive) {
+            // Se não estava ativo, abre o item clicado
+            if (!isExpanded) {
                 button.classList.add('active');
                 button.setAttribute('aria-expanded', 'true');
                 answer.style.maxHeight = answer.scrollHeight + 'px';
-            } else {
-                button.classList.remove('active');
-                button.setAttribute('aria-expanded', 'false');
-                answer.style.maxHeight = null;
             }
         });
     });
